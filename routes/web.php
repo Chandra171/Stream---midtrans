@@ -16,7 +16,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::redirect('/', 'prototype/login', 301);
+Route::redirect('/', '/login', 301);
 
 Route::prefix('prototype')->name('prototype.')->group(function () {
     route::get('/login', function(){
