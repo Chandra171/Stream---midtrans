@@ -46,9 +46,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function getIsActiveAttribute(){
-
-        if(!$this->LastActiveUserSubscription){
+    public function getIsActiveAttribute() {
+        if (!$this->LastActiveUserSubscription) {
             return false;
         }
         $dateNow = Carbon::now();
@@ -57,11 +56,11 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the LastActiveUserSubscription associated with the User
+     * Get all of the UserSubscription for the User
      *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\hasOne
      */
-    public function LastActiveUserSubscription(): HasOne
+    public function LastActiveUserSubscription(): hasOne
     {
         return $this->hasOne(UserSubscription::class)->wherePaymentStatus('paid')->latest();
     }
