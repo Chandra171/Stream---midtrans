@@ -20,6 +20,10 @@ use App\Http\Controllers\Admin\MovieController as AdminMovieController;
 |
 */
 
+//midtrans notification
+Route::post('midtrans/notification', [SubscriptionPlanController::class, 'midtransCallback']);
+
+
 Route::redirect('/', '/login', 301);
 
 //user

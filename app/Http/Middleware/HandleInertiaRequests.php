@@ -63,6 +63,10 @@ class HandleInertiaRequests extends Middleware
                 'message' => Session::get('message'),
                 'type' => Session::get('type'),
             ],
+
+            'env' => [
+                'MIDTRANS_CLIENTKEY' => env('MIDTRANS_CLIENTKEY')
+            ],
         ];
 
         // return array_merge(parent::share($request), [
